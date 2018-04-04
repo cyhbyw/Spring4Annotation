@@ -7,5 +7,8 @@
 </head>
 <body>
 <a href="hello">hello</a>
+<br/>
+<br/>
+<a href="/async">async request</a>
 </body>
 </html>

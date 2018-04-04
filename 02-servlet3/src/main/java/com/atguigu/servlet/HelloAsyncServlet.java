@@ -1,25 +1,21 @@
 package com.atguigu.servlet;
 
-import java.io.IOException;
-
 import javax.servlet.AsyncContext;
-import javax.servlet.ServletException;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+//1、支持异步处理asyncSupported=true
 @WebServlet(value = "/async", asyncSupported = true)
 public class HelloAsyncServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
-                                                                           IOException {
-        //1、支持异步处理asyncSupported=true
-        //2、开启异步模式
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         System.out
             .println("主线程开始。。。" + Thread.currentThread() + "==>" + System.currentTimeMillis());
+        //2、开启异步模式
         AsyncContext startAsync = req.startAsync();
 
         //3、业务逻辑进行异步处理;开始异步处理
@@ -30,15 +26,23 @@ public class HelloAsyncServlet extends HttpServlet {
                     System.out.println(
                         "副线程开始。。。" + Thread.currentThread() + "==>" + System.currentTimeMillis());
                     sayHello();
-                    startAsync.complete();
+                    /**
+                     * java.lang.IllegalStateException:
+                     * It is illegal to call this method
+                     * if the current request is not in asynchronous mode
+                     * (i.e. isAsyncStarted() returns false)
+                     */
+                    /////注释掉这句话，否则会报上述错误////////////////////startAsync.complete();
+
                     //获取到异步上下文
                     AsyncContext asyncContext = req.getAsyncContext();
                     //4、获取响应
                     ServletResponse response = asyncContext.getResponse();
-                    response.getWriter().write("hello async...");
+                    response.getWriter().write("Async request success");
                     System.out.println(
                         "副线程结束。。。" + Thread.currentThread() + "==>" + System.currentTimeMillis());
                 } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         });
@@ -47,7 +51,7 @@ public class HelloAsyncServlet extends HttpServlet {
     }
 
     public void sayHello() throws Exception {
-        System.out.println(Thread.currentThread() + " processing...");
+        System.out.println(Thread.currentThread() + " sayHello() processing...");
         Thread.sleep(3000);
     }
 }
