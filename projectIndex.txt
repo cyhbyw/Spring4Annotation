@@ -1,1 +1,2 @@
 01-spring-annotation-basicConfig @Bean @ComponentScan @IncludeFilter @ExcludeFilter
+01-spring-annotation-basicConfig2 @Scope @Lazy @Condition @Import
