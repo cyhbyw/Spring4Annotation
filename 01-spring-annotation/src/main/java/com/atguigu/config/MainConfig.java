@@ -11,11 +11,10 @@ import com.atguigu.bean.Person;
 
 //配置类==配置文件
 @Configuration //告诉Spring这是一个配置类
-
 @ComponentScans(value = { @ComponentScan(value = "com.atguigu", includeFilters = {
-                                                                                   /*						@Filter(type=FilterType.ANNOTATION,classes={Controller.class}),
-                                                                                   						@Filter(type=FilterType.ASSIGNABLE_TYPE,classes={BookService.class}),*/
-                                                                                   @Filter(type = FilterType.CUSTOM, classes = { MyTypeFilter.class }) }, useDefaultFilters = false) })
+/* @Filter(type=FilterType.ANNOTATION,classes={Controller.class}),
+   @Filter(type=FilterType.ASSIGNABLE_TYPE,classes={BookService.class}), */
+@Filter(type = FilterType.CUSTOM, classes = { MyTypeFilter.class }) }, useDefaultFilters = false) })
 //@ComponentScan  value:指定要扫描的包
 //excludeFilters = Filter[] ：指定扫描的时候按照什么规则排除那些组件
 //includeFilters = Filter[] ：指定扫描的时候只需要包含哪些组件
