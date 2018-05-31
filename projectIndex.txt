@@ -1,2 +1,3 @@
-01-spring-annotation-basicConfig @Bean @ComponentScan @IncludeFilter @ExcludeFilter
-01-spring-annotation-basicConfig2 @Scope @Lazy @Condition @Import
+01-spring-annotation-01-basicConfig @Bean @ComponentScan @IncludeFilter @ExcludeFilter
+01-spring-annotation-02-basicConfig2 @Scope @Lazy @Condition @Import
+01-spring-annotation-03-lifeCycle 自定义Bean初始化及销毁方法、BeanPostProcessor
