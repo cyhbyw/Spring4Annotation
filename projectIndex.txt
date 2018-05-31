@@ -2,3 +2,4 @@
 01-spring-annotation-02-basicConfig2 @Scope @Lazy @Condition @Import
 01-spring-annotation-03-lifeCycle 自定义Bean初始化及销毁方法、BeanPostProcessor
 01-spring-annotation-04-propertyValue @PropertySource
+01-spring-annotation-05-autowire @Autowired
