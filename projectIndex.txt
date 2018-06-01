@@ -4,3 +4,4 @@
 01-spring-annotation-04-propertyValue @PropertySource
 01-spring-annotation-05-autowire @Autowired
 01-spring-annotation-06-profile @Profile
+01-spring-annotation-07-aop @EnableAspectJAutoProxy, Demo & Source code analysis
