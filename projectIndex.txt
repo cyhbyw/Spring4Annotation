@@ -7,3 +7,4 @@
 01-spring-annotation-07-aop @EnableAspectJAutoProxy, Demo & Source code analysis
 01-spring-annotation-08-tx @EnableTransactionManagement, Demo & Source code analysis
 01-spring-annotation-09-ext 扩展的一些东西
+01-spring-annotation-10-annotationConfigSourceDebug 基于注解的IOC容器调试代码
