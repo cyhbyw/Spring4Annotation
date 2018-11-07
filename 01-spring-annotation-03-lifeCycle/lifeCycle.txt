@@ -1,0 +1,13 @@
+生命周期相关的源码
+org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory
+
+doCreateBean()
+	createBeanInstance()
+	populateBean()
+	initializeBean()
+		invokeAwareMethods()
+		applyBeanPostProcessorsBeforeInitialization()
+		invokeInitMethods()
+			afterPropertiesSet()
+			invokeCustomInitMethod()
+		applyBeanPostProcessorsAfterInitialization()
